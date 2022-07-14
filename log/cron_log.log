@@ -1,0 +1,7 @@
+2022-07-14 15:46:00,432 - sampleLogger - INFO - This is a Cron message
+2022-07-14 15:46:00,436 - sampleLogger - INFO - SUB - This is a Cron message
+2022-07-14 15:55:31,317 - sampleLogger - INFO - This is a Cron message
+2022-07-14 15:56:06,013 - sampleLogger - INFO - This is a Cron message
+2022-07-14 15:56:06,017 - sampleLogger - INFO - SUB - This is a Cron message
+2022-07-14 15:56:50,021 - sampleLogger - INFO - This is a Cron message
+2022-07-14 15:56:50,024 - sampleLogger - INFO - SUB - This is a Cron message

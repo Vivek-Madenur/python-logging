@@ -1,0 +1,55 @@
+version: 1
+
+formatters:
+  simple:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+filters:
+  cron_filter:
+    (): log_test.CronFilter
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: simple
+    filename: log/log.log
+    maxBytes: 10485760 # 10MB
+    backupCount: 20
+    encoding: utf8
+  cron_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: simple
+    filters: [cron_filter]
+    filename: log/cron_log.log
+    maxBytes: 10485760 # 10MB
+    backupCount: 20
+    encoding: utf8
+  another_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: simple
+    filename: log/another_log.log
+    maxBytes: 10485760 # 10MB
+    backupCount: 20
+    encoding: utf8
+
+loggers:
+  sampleLogger:
+    level: DEBUG
+    handlers: [console, file_handler, cron_file_handler]
+    propagate: no
+  anotherLogger:
+    level: DEBUG
+    handlers: [console, another_file_handler]
+    propagate: no
+
+root:
+  level: DEBUG
+  handlers: [console]
